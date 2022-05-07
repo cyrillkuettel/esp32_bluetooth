@@ -1,2 +1,7 @@
+
+# Hack to install pyserial (which is actually `import serial`)
+sudo pip install --target /usr/lib/python2.7 pyserial
+
+# https://stackoverflow.com/questions/51461266/import-pyserial-serial-not-recognized-by-python-but-dependencies-already-inst
+
 python esptool.py --chip esp32 -p /dev/ttyUSB0 erase_flash
-esptool.py v3.2-dev
