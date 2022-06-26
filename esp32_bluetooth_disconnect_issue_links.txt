@@ -1,0 +1,7 @@
+https://www.reddit.com/r/esp32/comments/rfrdma/esp_disconnecting_from_bluetooth_after_2_seconds/
+
+https://stackoverflow.com/questions/67792109/esp32-bluetooth-disconnected-after-a-few-seconds
+
+https://github.com/espressif/arduino-esp32/issues/4092
+
+https://www.reddit.com/r/esp32/comments/manc4i/bluetooth_stops_working_after_disconnect/
