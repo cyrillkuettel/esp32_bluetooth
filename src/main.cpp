@@ -16,9 +16,7 @@ const int ledPin =  25;
       
 
 
-// Handle received and sent messages
-String message = "";
-char incomingChar;
+
 
 void printDeviceAddress() {
  
@@ -40,47 +38,27 @@ void printDeviceAddress() {
 }
 
 
-
+// runs only once
 void setup() {
   Serial.begin(115200);
   
   pinMode(ledPin, OUTPUT);
-  
 
   SerialBT.begin("ESP32"); // Bluetooth device name
   Serial.println("The device started, now you can pair it with bluetooth!");
   printDeviceAddress();
 
-  if(!SerialBT.begin("ESP32")){
-    Serial.println("An error occurred initializing Bluetooth");
-  }else{
-    Serial.println("Bluetooth initialized");
-  }
-
-  SerialBT.write(1); // Starting signal to phone
 }
 
-
-boolean startSignalSent = false;
+// Handle received and sent messages
+char incomingChar;
 
 void loop() {
   if (SerialBT.available()){
     char incomingChar = SerialBT.read();
-    if (incomingChar != '\n'){
-      message += String(incomingChar);
-    }
-    else{
-      message = "";
-    }
     Serial.write(incomingChar);  
   }
 
   delay(20);
-
-  if (SerialBT.connected()) {
-      delay(5000);
-      SerialBT.write(1);  
-      startSignalSent = true;
-  }
 
 }
